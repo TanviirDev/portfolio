@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-:root {
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -23,4 +23,46 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+} */
+
+html,
+body {
+  width: 100dvw;
+  overflow-x: hidden;
+  background-color: black;
+  color: white;
+  scroll-behavior: smooth;
+  /* font-family: "Mona Sans", sans-serif; */
+}
+
+@theme {
+  --color-white-50: #d9ecff;
+  --color-black-50: #1c1c21;
+  --color-black-100: #0e0e10;
+  --color-black-200: #282732;
+}
+
+@layer components {
+}
+
+/* .slide {
+  transition: all cubic-bezier(0.71, 0.03, 0.34, 1);
+} */
+
+.headerAnimation {
+  animation: wordSlider 8s infinite cubic-bezier(0.9, 0.01, 0.3, 0.99);
+}
+@keyframes wordSlider {
+  0% {
+    transform: translateY(0.5%);
+  }
+  25% {
+    transform: translateY(-25%);
+  }
+  50% {
+    transform: translateY(-50%);
+  }
+  75% {
+    transform: translateY(-75%);
+  }
 }
