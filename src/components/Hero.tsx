@@ -1,12 +1,14 @@
 import Image from "next/image";
 import { words } from "@/constants";
 import Button from "./Button";
+import WorkSpace from "./WorkSpace";
+import ApiAnimation from "./ApiAnimation";
 
 const Hero = () => {
   return (
-    <section className="relative mt-32 ">
+    <section className="relative mt-32 xl:flex   ">
       {/* OVERVIEW  */}
-      <div className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5  ">
+      <div className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5  xl:w-1/2">
         <h1 className="text-2xl md:text-4xl  flex flex-wrap  mb-4  pointer-events-none items-center">
           Hi, I am
           <span className="slide inline-block overflow-hidden h-8 md:h-10 ">
@@ -48,7 +50,9 @@ const Hero = () => {
       </div>
 
       {/* 3D ROOM */}
-      <div>3d room</div>
+      <div className="xl:grow flex justify-center">
+        <ApiAnimation />
+      </div>
     </section>
   );
 };
