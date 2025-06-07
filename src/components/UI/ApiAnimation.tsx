@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import img from "../../../public/images/api-animation.svg";
 
 const ApiAnimation = () => {
   return (
@@ -7,13 +8,7 @@ const ApiAnimation = () => {
       href="https://storyset.com/technology"
       className="text-black pointer-events-none pointer-cursor-default text-center"
     >
-      <Image
-        src="/images/api-animation.svg"
-        width={500}
-        height={500}
-        alt="coding"
-        className=""
-      />
+      <Image src={img} alt="full-stack" className="" />
       Technology illustrations by Storyset
     </a>
   );

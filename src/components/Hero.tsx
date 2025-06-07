@@ -1,26 +1,28 @@
 import Image from "next/image";
 import { words } from "@/constants";
-import Button from "./Button";
-import WorkSpace from "./WorkSpace";
-import ApiAnimation from "./ApiAnimation";
+import Button from "./UI/Button";
+import ApiAnimation from "./UI/ApiAnimation";
 
 const Hero = () => {
   return (
     <section className="relative mt-32 xl:flex   ">
       {/* OVERVIEW  */}
       <div className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5  xl:w-1/2">
-        <h1 className="text-2xl md:text-4xl  flex flex-wrap  mb-4  pointer-events-none items-center">
+        <h1 className=" text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl flex flex-wrap  mb-4  pointer-events-none items-center">
           Hi, I am
-          <span className="slide inline-block overflow-hidden h-8 md:h-10 ">
-            <span className="headerAnimation flex flex-col">
+          <span className=" inline-block overflow-hidden h-10 md:h-12 2xl:h-16 ml-1 sm:ml-2 ">
+            <span className="headerAnimation flex flex-col ">
               {words.map((word) => (
-                <span key={word.text} className="flex items-center pl-1">
+                <span
+                  key={word.text}
+                  className="flex items-center pl-1 h-10 md:h-12 2xl:h-16"
+                >
                   <Image
                     src={word.img}
                     alt={word.text}
                     width={24}
                     height={24}
-                    className="bg-white rounded-full mr-1 md:size-8"
+                    className="bg-white rounded-full mr-1 sm:mr-2 md:size-8 2xl:size-10"
                   />
                   {word.text}
                 </span>
@@ -36,7 +38,7 @@ const Hero = () => {
         <div className="flex justify-between ">
           <Button
             text="Contact me "
-            className="md:w-50 md:h-16 w-40 h-12 "
+            className="md:w-50 md:h-16 w-40 h-12 xl:hidden "
             id="contact-me"
             image="/images/arrow-down.svg"
           />
@@ -49,7 +51,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* 3D ROOM */}
+      {/* full stack Image*/}
       <div className="xl:grow flex justify-center">
         <ApiAnimation />
       </div>

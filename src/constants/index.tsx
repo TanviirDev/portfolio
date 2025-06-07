@@ -4,3 +4,10 @@ export const words = [
   { text: "Bsc Graduate.", img: "/images/graduation-cap.svg" },
   { text: "London Based.", img: "/images/map-pinned.svg" },
 ];
+
+export const highlightsData = [
+  { header: "2.5+", subHeader: "Years of Experience" },
+  { header: "3+", subHeader: "Companies" },
+  { header: "15+", subHeader: "Projects" },
+  { header: "1st Class", subHeader: "BSc Comp Sci Graduate" },
+];
