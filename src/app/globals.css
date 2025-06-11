@@ -66,3 +66,21 @@ body {
     transform: translateY(-75%);
   }
 }
+
+.flipCard {
+  transform-style: preserve-3d;
+  transition: all 0.8s ease;
+  /* transform-origin: center; */
+}
+.frontFace,
+.backFace {
+  backface-visibility: hidden;
+}
+
+.backFace {
+  transform: rotateX(180deg);
+}
+
+.flipCardContainer:hover .flipCard {
+  transform: rotateX(180deg);
+}

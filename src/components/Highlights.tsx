@@ -11,7 +11,6 @@ const Highlights = () => {
           className="gap-1.5 py-6 xl:items-start xl:pl-4 text-white-50"
         >
           <h3 className=" text-3xl md:text-4xl 2xl:text-5xl font-bold">
-            {" "}
             {data.header}
           </h3>
           <p className="text-lg md:text-xl">{data.subHeader}</p>
