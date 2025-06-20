@@ -6,8 +6,24 @@ export const words = [
 ];
 
 export const highlightsData = [
-  { header: "2.5+", subHeader: "Years of Experience" },
-  { header: "3+", subHeader: "Companies" },
-  { header: "15+", subHeader: "Projects" },
-  { header: "1st Class", subHeader: "BSc Comp Sci Graduate" },
+  {
+    header: "2.5+",
+    subHeader: "Years of Experience",
+    description: "Full-stack development experience with modern technologies.",
+  },
+  {
+    header: "3+",
+    subHeader: "Companies",
+    description: "Worked with diverse companies across different industries.",
+  },
+  {
+    header: "10+",
+    subHeader: "Projects",
+    description: "Worked with various technologies and frameworks.",
+  },
+  {
+    header: "First-Class",
+    subHeader: "BSc Comp Sci Graduate",
+    description: "Graduated from City, University of London.",
+  },
 ];

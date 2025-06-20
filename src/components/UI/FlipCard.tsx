@@ -1,26 +1,36 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import Card from "@/components/UI/Card";
 
-const FlipCard = () => {
+interface FlipCardProps {
+  frontContent: ReactNode;
+  backContent: ReactNode;
+  className?: string;
+  frontClassName?: string;
+  backClassName?: string;
+}
+
+const FlipCard: React.FC<FlipCardProps> = ({
+  frontContent,
+  backContent,
+  className = "",
+  frontClassName = "",
+  backClassName = "",
+}) => {
   return (
-    <div className=" flipCardContainer   w-full h-full">
-      <div className="flipCard w-full h-full ">
-        <div className="frontFace absolute top-0 left-0   w-full h-full min-h-60 ">
+    <div className={`flipCardContainer w-full h-full ${className}`}>
+      <div className="flipCard relative w-full h-full min-h-40">
+        <div
+          className={`frontFace absolute top-0 left-0 w-full h-full min-h-40 ${frontClassName}`}
+        >
           <Card className="gap-1.5 py-6 xl:items-start xl:pl-4 text-white-50 h-full">
-            <h3 className=" text-3xl md:text-4xl 2xl:text-5xl font-bold">
-              Front
-            </h3>
-            <p className="text-lg md:text-xl">this is a front </p>
+            {frontContent}
           </Card>
         </div>
-        <div className="backFace relative top-0 left-0 w-full h-full min-h-60">
-          <Card className="gap-1.5 py-6 xl:items-start xl:pl-4 text-white-50 h-full ">
-            <p className="text-sm md:text-xl">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-            </p>
+        <div
+          className={`backFace absolute top-0 left-0 w-full h-full min-h-40 ${backClassName}`}
+        >
+          <Card className="gap-1.5 py-6 xl:items-start xl:px-4 text-white-50 h-full">
+            {backContent}
           </Card>
         </div>
       </div>

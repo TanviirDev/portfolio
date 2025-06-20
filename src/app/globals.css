@@ -50,7 +50,7 @@ body {
 } */
 
 .headerAnimation {
-  animation: wordSlider 8s infinite cubic-bezier(0.9, 0.01, 0.3, 0.99);
+  animation: wordSlider 8s infinite cubic-bezier(0.9, 0.01, 0.3, 0.99) 2s;
 }
 @keyframes wordSlider {
   0% {
@@ -70,9 +70,8 @@ body {
 .flipCard {
   transform-style: preserve-3d;
   transition: all 0.8s ease;
-  /* transform-origin: center; */
 }
-.frontFace,
+
 .backFace {
   backface-visibility: hidden;
 }
@@ -83,4 +82,17 @@ body {
 
 .flipCardContainer:hover .flipCard {
   transform: rotateX(180deg);
+}
+
+.h1Animation {
+  animation: h1drop 1s ease-out 0s 1 normal;
+}
+
+@keyframes h1drop {
+  0% {
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
