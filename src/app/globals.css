@@ -72,15 +72,30 @@ body {
   transition: all 0.8s ease;
 }
 
+.frontFace,
 .backFace {
   backface-visibility: hidden;
 }
 
-.backFace {
+.backFace.x {
   transform: rotateX(180deg);
 }
+.backFace.y {
+  transform: rotateY(180deg);
+}
+@media (hover: hover) and (pointer: fine) {
+  .flipCardContainer:hover .flipCard.x {
+    transform: rotateX(180deg);
+  }
+}
 
-.flipCardContainer:hover .flipCard {
+@media (hover: hover) and (pointer: fine) {
+  .flipCardContainer:hover .flipCard.y {
+    transform: rotateY(180deg);
+  }
+}
+
+.flipped {
   transform: rotateX(180deg);
 }
 

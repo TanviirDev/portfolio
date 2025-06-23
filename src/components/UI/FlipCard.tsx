@@ -1,38 +1,53 @@
-import React, { ReactNode } from "react";
-import Card from "@/components/UI/Card";
+"use client";
+
+import React, { useEffect, useState, useMemo, useRef } from "react";
+import { twJoin } from "tailwind-merge";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 interface FlipCardProps {
-  frontContent: ReactNode;
-  backContent: ReactNode;
+  direction: "x" | "y";
   className?: string;
-  frontClassName?: string;
-  backClassName?: string;
+  children?: React.ReactNode;
 }
 
 const FlipCard: React.FC<FlipCardProps> = ({
-  frontContent,
-  backContent,
+  direction = "x",
   className = "",
-  frontClassName = "",
-  backClassName = "",
+  children,
 }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+  const flipcardRef = useRef(null);
+
+  const isMobile = useMemo(() => "ontouchstart" in window, []);
+
+  useGSAP(
+    () => {
+      gsap.to(flipcardRef.current, {
+        [direction === "x" ? "rotationX" : "rotationY"]:
+          isFlipped && isMobile ? 180 : 0,
+        duration: 0,
+      });
+    },
+    { dependencies: [isFlipped, isMobile] }
+  );
+
+  const handleClick = () => {
+    setIsFlipped((prev) => !prev);
+  };
   return (
-    <div className={`flipCardContainer w-full h-full ${className}`}>
-      <div className="flipCard relative w-full h-full min-h-40">
-        <div
-          className={`frontFace absolute top-0 left-0 w-full h-full min-h-40 ${frontClassName}`}
-        >
-          <Card className="gap-1.5 py-6 xl:items-start xl:pl-4 text-white-50 h-full">
-            {frontContent}
-          </Card>
-        </div>
-        <div
-          className={`backFace absolute top-0 left-0 w-full h-full min-h-40 ${backClassName}`}
-        >
-          <Card className="gap-1.5 py-6 xl:items-start xl:px-4 text-white-50 h-full">
-            {backContent}
-          </Card>
-        </div>
+    <div
+      onClick={handleClick}
+      className={`flipCardContainer w-full h-full ${className}`}
+    >
+      <div
+        ref={isMobile ? flipcardRef : null}
+        className={twJoin(
+          "flipCard  relative w-full h-full min-h-40",
+          direction
+        )}
+      >
+        {children}
       </div>
     </div>
   );
