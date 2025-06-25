@@ -40,6 +40,9 @@ body {
   --color-black-50: #1c1c21;
   --color-black-100: #0e0e10;
   --color-black-200: #282732;
+  --animate-drop: drop 1s ease-out 0s 1 normal;
+  --animate-raise: raise 1s ease-out 0s 1 normal;
+  --animate-fade-in: fadeIn 2s ease-out 0s 1 normal;
 }
 
 @layer components {
@@ -83,6 +86,11 @@ body {
 .backFace.y {
   transform: rotateY(180deg);
 }
+
+.flipped {
+  transform: rotateX(180deg);
+}
+
 @media (hover: hover) and (pointer: fine) {
   .flipCardContainer:hover .flipCard.x {
     transform: rotateX(180deg);
@@ -95,19 +103,38 @@ body {
   }
 }
 
-.flipped {
-  transform: rotateX(180deg);
-}
-
-.h1Animation {
-  animation: h1drop 1s ease-out 0s 1 normal;
-}
-
-@keyframes h1drop {
+@keyframes drop {
   0% {
+    opacity: 0;
     transform: translateY(-50px);
   }
   100% {
     transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes raise {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 1536px) {
+  body {
+    width: 80dvw;
+    margin: auto;
   }
 }

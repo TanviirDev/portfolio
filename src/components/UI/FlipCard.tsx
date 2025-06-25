@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState, useMemo, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { twJoin } from "tailwind-merge";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -18,8 +18,13 @@ const FlipCard: React.FC<FlipCardProps> = ({
 }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const flipcardRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
 
-  const isMobile = useMemo(() => "ontouchstart" in window, []);
+  useEffect(() => {
+    setIsMobile("ontouchstart" in window);
+  }, []);
+
+  // const isMobile = useMemo(() => "ontouchstart" in window, []);
 
   useGSAP(
     () => {
@@ -38,12 +43,12 @@ const FlipCard: React.FC<FlipCardProps> = ({
   return (
     <div
       onClick={handleClick}
-      className={`flipCardContainer w-full h-full ${className}`}
+      className={`flipCardContainer w-full ${className}`}
     >
       <div
         ref={isMobile ? flipcardRef : null}
         className={twJoin(
-          "flipCard  relative w-full h-full min-h-40",
+          "flipCard  relative w-full h-full min-h-30",
           direction
         )}
       >

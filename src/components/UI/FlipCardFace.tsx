@@ -10,7 +10,7 @@ function FlipCardFace({ backFace, className, children }: FlipCardFaceProps) {
   return (
     <div
       className={twJoin(
-        `absolute top-0 left-0 w-full h-full min-h-40`,
+        `absolute top-0 left-0 w-full h-full min-h-30`,
         className,
         backFace ? `backFace ${backFace}` : "frontFace"
       )}
