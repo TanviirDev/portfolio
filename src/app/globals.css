@@ -69,7 +69,7 @@ body {
     transform: translateY(-75%);
   }
 }
-
+/* FLIP CARD */
 .flipCard {
   transform-style: preserve-3d;
   transition: all 0.8s ease;
@@ -101,6 +101,22 @@ body {
   .flipCardContainer:hover .flipCard.y {
     transform: rotateY(180deg);
   }
+}
+
+/* FLIP CARD */
+
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  flex: 0 0 180px;
+  min-width: 0;
+  margin-left: 30px;
+  margin-right: 30px;
+  /* transform: translateX(150px); */
 }
 
 @keyframes drop {

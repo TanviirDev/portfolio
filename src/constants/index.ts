@@ -27,3 +27,11 @@ export const highlightsData = [
     description: "Graduated from City, University of London.",
   },
 ];
+
+export const keyTechStacks = [
+  { img: "/images/ts.png", stack: ["Typescript", "Javascript", "Java"] },
+  { img: "/images/react.png", stack: ["React", "Next.js"] },
+  { img: "/images/nodeJs.png", stack: ["Node.js", "Firebase", "Serverless"] },
+  { img: "/images/db.png", stack: ["MongoDB", "PostgreSQL"] },
+  { img: "/images/ai.png", stack: ["RAG", "LangChain", "Flowise"] },
+];

@@ -1,0 +1,41 @@
+"use client";
+
+import React from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
+import Card from "@/components/UI/Card";
+import Image from "next/image";
+import { keyTechStacks } from "@/constants";
+export function EmblaCarousel() {
+  const [emblaRef] = useEmblaCarousel({ loop: true }, [
+    Autoplay({ delay: 3000 }),
+  ]);
+
+  return (
+    <div className="embla" ref={emblaRef}>
+      <div className="embla__container  ">
+        {keyTechStacks.map((e, i) => (
+          <div key={i} className="embla__slide ">
+            <Card className=" h-full gap-8  ">
+              <div className="mt-10 flex-1">
+                <Image
+                  className="w-24 h-24 object-cover"
+                  src={e.img}
+                  width={100}
+                  height={100}
+                  alt="Node JS"
+                />
+              </div>
+
+              <div className="mb-10 flex-1">
+                {e.stack.map((e, i) => (
+                  <p key={i}> {e}</p>
+                ))}
+              </div>
+            </Card>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}

@@ -5,13 +5,13 @@ const Card = ({
   children,
   className,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
 }) => {
   return (
     <div
       className={twMerge(
-        "flex flex-col bg-black-200 justify-center item-center w-full text-center rounded-xl ",
+        "flex flex-col bg-black-200 justify-center items-center w-full text-center rounded-xl ",
         className
       )}
     >
