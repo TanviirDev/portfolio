@@ -13,10 +13,10 @@ export function EmblaCarousel() {
 
   return (
     <div className="embla" ref={emblaRef}>
-      <div className="embla__container  ">
+      <div className="embla__container justify-around xl:justify-center  ">
         {keyTechStacks.map((e, i) => (
           <div key={i} className="embla__slide ">
-            <Card className=" h-full gap-8  ">
+            <Card className=" h-full w-full gap-8 2xl:gap-12  ">
               <div className="mt-10 flex-1">
                 <Image
                   className="w-24 h-24 object-cover"
@@ -27,9 +27,12 @@ export function EmblaCarousel() {
                 />
               </div>
 
-              <div className="mb-10 flex-1">
+              <div className="mb-10 flex-1  ">
                 {e.stack.map((e, i) => (
-                  <p key={i}> {e}</p>
+                  <p className="2xl:text-lg text-white-50" key={i}>
+                    {" "}
+                    {e}
+                  </p>
                 ))}
               </div>
             </Card>
