@@ -3,3 +3,20 @@ export type KeyTechStack = {
   img: string;
   stack: string[];
 };
+
+export type WorkExperience = {
+  id: string;
+  title: string;
+  startDate: string;
+  endDate: string;
+  description: string;
+  responsibilities: string[];
+  technologies: string[];
+  company: {
+    name: string;
+    logo: string;
+    image?: string;
+    bio: string;
+    link: string;
+  };
+};

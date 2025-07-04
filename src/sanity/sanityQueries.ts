@@ -11,3 +11,20 @@ export const getHighlightData = async () =>
 
 export const getKeyTechStack = async () =>
   await client.fetch<KeyTechStack[]>(KEYTECHSTACK_QUERY);
+
+type SanityWorkExperience = {
+  id: string;
+  title: string;
+  startDate: string;
+  endDate: string;
+  description: string;
+  responsibilities: string[];
+  technologies: string[];
+  company: {
+    name: string;
+    logo: string;
+    image?: string;
+    bio: string;
+    link: string;
+  };
+};
