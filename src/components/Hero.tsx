@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section className="relative mt-32 xl:flex   ">
       {/* OVERVIEW  */}
-      <div className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5  xl:w-1/2">
+      <div className="flex flex-col justify-center md:w-full w-screen md:px- px-5 2xl:px-0 xl:w-1/2">
         <h1 className="animate-drop text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl flex flex-wrap  mb-4  pointer-events-none items-center">
           Hi, I am
           <span className=" inline-block overflow-hidden h-10 md:h-12 2xl:h-16 ml-1 sm:ml-2 ">

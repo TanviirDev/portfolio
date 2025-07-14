@@ -16,7 +16,6 @@ export function EmblaCarousel({ keyTechStacks }: EmblaCarouselProp) {
   const [emblaRef] = useEmblaCarousel({ loop: true }, [
     Autoplay({ delay: 3000 }),
   ]);
-  console.log(keyTechStacks);
 
   return (
     <div className="embla" ref={emblaRef}>

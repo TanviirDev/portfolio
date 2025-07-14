@@ -8,7 +8,7 @@ const Highlights = async () => {
   const highlightsData = await getHighlightData();
 
   return (
-    <section className="flex flex-col w-[80%] gap-4 mx-auto mb-8 xl:flex-row xl:w-[90%] xl:gap-5">
+    <section className="flex flex-col w-[80%] gap-4 mx-auto mb-8 xl:flex-row xl:w-[100%] xl:gap-5">
       {highlightsData.map((data) => (
         <FlipCard direction="x" key={data._id}>
           <FlipCardFace>
