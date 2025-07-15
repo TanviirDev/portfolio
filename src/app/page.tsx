@@ -3,6 +3,7 @@ import Background from "@/components/Background";
 import Highlights from "@/components/Highlights";
 import KeyTechStacks from "@/components/KeyTechStacks";
 import Experience from "@/components/Experience";
+import Projects from "@/components/Projects";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Highlights />
       <KeyTechStacks />
       <Experience />
+      <Projects />
     </main>
   );
 }

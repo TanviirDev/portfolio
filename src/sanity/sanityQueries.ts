@@ -18,7 +18,7 @@ type SanityWorkExperience = {
   company: {
     name: string;
     logo: string;
-    image?: string;
+    image: string;
     bio: string;
     link: string;
   };
