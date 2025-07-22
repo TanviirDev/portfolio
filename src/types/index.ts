@@ -20,3 +20,12 @@ export type WorkExperience = {
     link: string;
   };
 };
+
+export type ProjectData = {
+  id: string;
+  name: string;
+  description: string;
+  link?: string;
+  screenshots: { url: string }[];
+  technologies: string[];
+};

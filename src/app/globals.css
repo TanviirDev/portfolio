@@ -27,7 +27,6 @@ body {
 
 html,
 body {
-  padding-inline:;
   width: 100dvw;
   overflow-x: hidden;
   background-color: black;
@@ -47,11 +46,10 @@ body {
 }
 
 @layer components {
+  .technology-span {
+    @apply text-[#FFC107] border-1 rounded-2xl p-0.5 px-1;
+  }
 }
-
-/* .slide {
-  transition: all cubic-bezier(0.71, 0.03, 0.34, 1);
-} */
 
 .headerAnimation {
   animation: wordSlider 8s infinite cubic-bezier(0.9, 0.01, 0.3, 0.99) 2s;
@@ -155,6 +153,16 @@ body {
     #52aeff 37.51%,
     #fd5c79 62.83%,
     #6d45ce 92.91%
+  );
+}
+
+.project-gradient {
+  background: #130842;
+  background: radial-gradient(
+    circle,
+    rgba(19, 8, 66, 1) 0%,
+    rgba(2, 2, 61, 1) 35%,
+    rgba(46, 19, 110, 1) 100%
   );
 }
 

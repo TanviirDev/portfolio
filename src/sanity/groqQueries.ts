@@ -16,3 +16,14 @@ export const EXPERIENCE_QUERY = `*[_type == "experienceData"] | order(position a
     link
   }
 } `;
+
+export const PROJECTS_QUERY = `*[_type == "projects"] | order(position asc){
+'id': _id,
+name,
+description,
+'screenshots': screenshots[]{
+'url': asset-> url
+},
+technologies,
+link
+}`;

@@ -4,10 +4,12 @@ import Highlights from "@/components/Highlights";
 import KeyTechStacks from "@/components/KeyTechStacks";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
+import NavBar from "@/components/NavBar";
 
 export default function Home() {
   return (
     <main className=" flex flex-col items-center overflow-hidden m-auto">
+      <NavBar />
       <Background />
       <Hero />
       <Highlights />

@@ -24,8 +24,8 @@ function CompanyInfoCard({ company }: CompanyInfoProp) {
           ></Image>
         </div>
 
-        <p className="text-start ">{company.bio}</p>
-        <Link link={company.link} text="View Company"></Link>
+        <p className="text-start xl:text-lg ">{company.bio}</p>
+        <Link link={company.link} className="my-4" text="View Company"></Link>
       </Card>
     </div>
   );

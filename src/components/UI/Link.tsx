@@ -10,7 +10,7 @@ interface LinkProp {
 
 function Link({ text, link, className }: LinkProp) {
   return (
-    <div className={twMerge("flex text-[#CBACF9] my-4", className)}>
+    <div className={twMerge("flex text-[#CBACF9]", className)}>
       <a href={link} target="_blank" className="">
         {text}
       </a>

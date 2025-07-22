@@ -26,7 +26,7 @@ function ExperienceInfo({ experience }: ExperienceInfoProp) {
           />
         </div>
       </div>
-      <div className="experience-description ml-2">
+      <div className="experience-description ml-2 ">
         <h3 className="text-2xl font-bold my-2">{experience.title}</h3>
         <div className="duration flex my-4">
           <span className="mr-1">
@@ -40,20 +40,17 @@ function ExperienceInfo({ experience }: ExperienceInfoProp) {
           </span>
           <p className="date text-white-50"> {experience.duration}</p>
         </div>
-        <p>{experience.description}</p>
-        <ul className=" text-white-50 pl-6 list-disc mt-1">
+        <p className="xl:text-lg">{experience.description}</p>
+        <ul className=" text-white-50 pl-6 list-disc mt-1 xl:text-lg">
           {experience.responsibilities.map((e, i) => (
             <li key={i} className="mb-4">
               {e}
             </li>
           ))}
         </ul>
-        <div className="technologies flex gap-2  text-[#FFC107]">
+        <div className="flex gap-2 flex-wrap mb-2">
           {experience.technologies.map((tech, i) => (
-            <p
-              key={i}
-              className="border-1 border-color- rounded-2xl p-0.5 px-1"
-            >
+            <p key={i} className=" technology-span ">
               {tech}
             </p>
           ))}

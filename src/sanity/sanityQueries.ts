@@ -3,9 +3,11 @@ import {
   HIGHLIGHTS_DATA_QUERY,
   KEYTECHSTACK_QUERY,
   EXPERIENCE_QUERY,
+  PROJECTS_QUERY,
 } from "@/sanity/groqQueries";
 import { type SanityDocument } from "next-sanity";
 import { KeyTechStack } from "@/types";
+import { ProjectData } from "@/types";
 
 type SanityWorkExperience = {
   id: string;
@@ -32,3 +34,6 @@ export const getKeyTechStack = async () =>
 
 export const getWorkExperience = async () =>
   await client.fetch<SanityWorkExperience[]>(EXPERIENCE_QUERY);
+
+export const getProjectData = async () =>
+  await client.fetch<ProjectData[]>(PROJECTS_QUERY);
