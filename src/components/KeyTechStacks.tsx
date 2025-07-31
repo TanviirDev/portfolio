@@ -7,7 +7,7 @@ async function KeyTechStacks() {
   const keyTechStack = await getKeyTechStack();
 
   return (
-    <section className="w-full mt-5 xl:mt-10 mb-5">
+    <section id="skills" className="w-full mt-5 xl:mt-10 mb-5">
       <Title title="Key Skills"></Title>
       <div>
         <EmblaCarousel keyTechStacks={keyTechStack} />

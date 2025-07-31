@@ -9,7 +9,7 @@ import ProjectImageGallery from "./UI/ProjectImageGallery";
 async function Projects() {
   const projects = await getProjectData();
   return (
-    <section className="mb-20">
+    <section id="projects" className="mb-20">
       <Title title="Project"></Title>
       <div className=" grid grid-cols-1 p-5 lg:grid-cols-2  gap-6 xl:gap-10 xl:p-0 ">
         {projects.slice(0, 4).map((project) => (

@@ -13,7 +13,7 @@ const Button = ({ text, className, id, image }: ButtonProp) => {
   return (
     <a
       href=""
-      className={twMerge("relative z-20 cursor-pointer", className)}
+      className={twMerge("relative cursor-pointer", className)}
       id={id}
     >
       <div className="x-1 py-2 rounded-lg bg-black-200 flex justify-center items-center relative cursor-pointer overflow-hidden group">
@@ -23,23 +23,25 @@ const Button = ({ text, className, id, image }: ButtonProp) => {
          bg-white transition-all duration-500;"
         />
         <p
-          className="uppercase md:text-lg text-black transition-all duration-500
+          className=" md:text-lg text-black transition-all duration-500
         group-hover:text-white group-hover:-translate-x-5 xl:translate-x-0 -translate-x-5"
         >
           {text}
         </p>
-        <div
-          className="group-hover:bg-white size-8 rounded-full absolute right-3 top-1/2 
+        {image && (
+          <div
+            className="group-hover:bg-white size-8 rounded-full absolute right-3 top-1/2 
         -translate-y-1/2 flex justify-center items-center overflow-hidden"
-        >
-          <Image
-            src={image}
-            alt="arrow down"
-            width={24}
-            height={24}
-            className="size-5 xl:-translate-y-34 translate-y-0.5 animate-bounce group-hover:translate-y-0.5 transition-all duration-500"
-          />
-        </div>
+          >
+            <Image
+              src={image}
+              alt="arrow down"
+              width={24}
+              height={24}
+              className="size-5 xl:-translate-y-34 translate-y-0.5 animate-bounce group-hover:translate-y-0.5 transition-all duration-500"
+            />
+          </div>
+        )}
       </div>
     </a>
   );

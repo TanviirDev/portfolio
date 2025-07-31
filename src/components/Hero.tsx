@@ -5,8 +5,7 @@ import ApiAnimation from "./UI/ApiAnimation";
 
 const Hero = () => {
   return (
-    <section className="relative mt-32 xl:flex   ">
-      {/* OVERVIEW  */}
+    <section id="#hero" className="relative mt-6 xl:flex   ">
       <div className="flex flex-col justify-center md:w-full w-screen md:px- px-5 2xl:px-0 xl:w-1/2">
         <h1 className="animate-drop text-2xl sm:text-3xl md:text-4xl 2xl:text-5xl flex flex-wrap  mb-4  pointer-events-none items-center">
           Hi, I am
@@ -38,20 +37,16 @@ const Hero = () => {
         <div className="flex justify-between ">
           <Button
             text="Contact me "
-            className="md:w-50 md:h-16 w-40 h-12 xl:hidden animate-fade-in"
-            id="contact-me"
+            className="md:w-50 md:h-16 w-40 h-12 xl:hidden animate-fade-in uppercase"
             image="/images/arrow-down.svg"
           />
           <Button
             text="Chat"
-            className="md:w-40 md:h-16 w-30 h-12 mr-10 animate-fade-in"
-            id="chat"
+            className="md:w-40 md:h-16 w-30 h-12 mr-10 animate-fade-in uppercase"
             image="/images/bot-message-square.svg"
           />
         </div>
       </div>
-
-      {/* full stack Image*/}
       <div className="xl:grow flex justify-center">
         <ApiAnimation />
       </div>

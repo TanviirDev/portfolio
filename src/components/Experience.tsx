@@ -20,7 +20,7 @@ async function Experience() {
   }));
 
   return (
-    <section className="mt-10  px-5 xl:px-0">
+    <section id="experience" className="mt-10  px-5 xl:px-0">
       <Title title="Professional Work Experience"></Title>
       <div className="all-experiences relative">
         <div className="gradient-line w-0.5 h-full absolute left-7  xl:left-1/3 xl:translate-x-10"></div>
