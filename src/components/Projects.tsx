@@ -39,11 +39,7 @@ async function Projects() {
                   ))}
                 </div>
                 {project.link && (
-                  <Link
-                    link={project!.link}
-                    text="View Project"
-                    className="animate-bounce"
-                  />
+                  <Link link={project!.link} text="View Project" className="" />
                 )}
               </div>
             </div>
