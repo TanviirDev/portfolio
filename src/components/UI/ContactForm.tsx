@@ -15,7 +15,6 @@ function ContactForm() {
     toast.promise(
       async () => {
         const res = await sendMessage(formDate);
-        // console.log(res);
         if (res instanceof Error) {
           throw res;
         }
@@ -84,7 +83,8 @@ function ContactForm() {
             type="submit"
             className="w-full text-black hover:bg-gray-100 font-medium rounded-md p-2 bg-white-50"
           >
-            Send message <SendHorizontal className="inline " size={20} />
+            Send message
+            <SendHorizontal className="inline " size={20} />
           </button>
 
           <button className="w-full bg-white-50 text-black  hover:bg-gray-100 font-medium rounded-md p-2 ">
