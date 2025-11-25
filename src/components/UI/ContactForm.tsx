@@ -4,12 +4,11 @@ import Card from "./Card";
 import { SendHorizontal } from "lucide-react";
 import { sendMessage } from "@/actions/sendMessage";
 import { useState } from "react";
-import { send } from "process";
 import { ToastContainer, toast } from "react-toastify";
 
 function ContactForm() {
   const [messageSent, setMessageSent] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  // const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (formDate: FormData) => {
     toast.promise(
@@ -36,7 +35,7 @@ function ContactForm() {
     );
   };
   return (
-    <Card className="w-full items-start content-start p-8 max-w-2xl">
+    <Card className="w-full items-start content-start p-8">
       <form className="w-full space-y-6" action={handleSubmit}>
         <div className="flex flex-col text-start space-y-1">
           <label className="text-white-50" htmlFor="name">

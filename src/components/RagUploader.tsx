@@ -153,7 +153,7 @@ function RagUploader() {
             setUploading(true);
             uploadFile();
           }}
-          disabled={uploading}
+          disabled={uploading || success}
         >
           {uploading ? "Uploading..." : "Upload"}
         </button>
