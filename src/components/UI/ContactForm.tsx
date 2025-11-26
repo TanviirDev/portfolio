@@ -5,8 +5,13 @@ import { SendHorizontal } from "lucide-react";
 import { sendMessage } from "@/actions/sendMessage";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { twMerge } from "tailwind-merge";
 
-function ContactForm() {
+interface ContactFormProps {
+  className?: string;
+}
+
+function ContactForm({ className }: ContactFormProps) {
   const [messageSent, setMessageSent] = useState(false);
   // const [error, setError] = useState<string | null>(null);
 
@@ -35,7 +40,9 @@ function ContactForm() {
     );
   };
   return (
-    <Card className="w-full items-start content-start p-8">
+    <Card
+      className={twMerge("w-full items-start content-start p-8", className)}
+    >
       <form className="w-full space-y-6" action={handleSubmit}>
         <div className="flex flex-col text-start space-y-1">
           <label className="text-white-50" htmlFor="name">
@@ -68,7 +75,7 @@ function ContactForm() {
             Your message
           </label>
           <textarea
-            rows={6}
+            rows={8}
             className="rounded-md bg-black-200 p-2 "
             id="message"
             name="message"
@@ -77,7 +84,7 @@ function ContactForm() {
           />
         </div>
         <ToastContainer theme="dark" autoClose={3000} />
-        <div className="space-y-3 ">
+        <div className="space-y-4 md:mt-20">
           <button
             type="submit"
             className="w-full text-black hover:bg-gray-100 font-medium rounded-md p-2 bg-white-50"

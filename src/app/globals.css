@@ -1,38 +1,35 @@
 @import "tailwindcss";
 
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-} */
-
 html,
 body {
-  /* width: 100dvw; */
-  /* overflow-x: hidden; */
   background-color: black;
   color: white;
   scroll-behavior: smooth;
   /* font-family: "Mona Sans", sans-serif; */
+}
+
+/* Grey scrollbar utility for textarea and scrollable elements */
+.scrollbar-gray {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #b0b0b0 transparent; /* Firefox */
+}
+
+.scrollbar-gray::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar-gray::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-gray::-webkit-scrollbar-thumb {
+  background-color: #b0b0b0;
+  border-radius: 8px;
+}
+
+.scrollbar-gray::-webkit-scrollbar-thumb:hover {
+  background-color: #9a9a9a;
 }
 
 @theme {
