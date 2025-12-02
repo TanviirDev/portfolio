@@ -24,7 +24,7 @@ function NavBar() {
         </ul>
       </nav>
       <a
-        href="#contact-me"
+        href="#contactForm"
         className="hidden xl:flex bg-white text-black p-1 rounded-lg"
       >
         contact me

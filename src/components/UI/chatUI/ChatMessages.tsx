@@ -1,9 +1,13 @@
 import React from "react";
-
-function ChatMessages() {
+import type { ChatMessage } from "@/components/Chat";
+interface ChatMessagesProps {
+  chatMessages: ChatMessage[];
+  isChatInitiated: boolean;
+}
+function ChatMessages({ chatMessages, isChatInitiated }: ChatMessagesProps) {
   return (
     <div id="ChatContainer" className="flex flex-col m-auto">
-      <Info />
+      {isChatInitiated ? <div></div> : <Info />}
     </div>
   );
 }

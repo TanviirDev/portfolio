@@ -12,9 +12,8 @@ interface ButtonProp {
 const Button = ({ text, className, id, image }: ButtonProp) => {
   return (
     <a
-      href=""
+      href={`#${id}`}
       className={twMerge("relative cursor-pointer", className)}
-      id={id}
     >
       <div className="x-1 py-2 rounded-lg bg-black-200 flex justify-center items-center relative cursor-pointer overflow-hidden group">
         <div

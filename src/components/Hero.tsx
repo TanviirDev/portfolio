@@ -36,11 +36,13 @@ const Hero = () => {
         </div>
         <div className="flex justify-between ">
           <Button
+            id="contactForm"
             text="Contact me "
             className="md:w-50 md:h-16 w-40 h-12 xl:hidden animate-fade-in uppercase"
             image="/images/arrow-down.svg"
           />
           <Button
+            id="chat"
             text="Chat"
             className="md:w-40 md:h-16 w-30 h-12 mr-10 animate-fade-in uppercase"
             image="/images/bot-message-square.svg"
