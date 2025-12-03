@@ -24,7 +24,7 @@ function ChatMessages({ chatMessages, isChatInitiated }: ChatMessagesProps) {
         chatMessages.map((msg, index) => (
           <div
             key={index}
-            className={`my-2 p-3 rounded-md max-w-[80%] text-white text-sm md:text-base ${
+            className={`my-2 p-3 rounded-md max-w-[80%] text-white text-sm md:text-base whitespace-pre-wrap text-start ${
               msg.role === "user"
                 ? "self-end bg-blue-500 "
                 : "self-start bg-gray-800"
