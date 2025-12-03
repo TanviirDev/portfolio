@@ -1,13 +1,38 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import type { ChatMessage } from "@/components/Chat";
 interface ChatMessagesProps {
   chatMessages: ChatMessage[];
   isChatInitiated: boolean;
 }
 function ChatMessages({ chatMessages, isChatInitiated }: ChatMessagesProps) {
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [chatMessages]);
+
   return (
-    <div id="ChatContainer" className="flex flex-col m-auto">
-      {isChatInitiated ? <div></div> : <Info />}
+    <div
+      id="messageContainer"
+      className="flex flex-col w-full px-4 m-auto overflow-y-auto  max-h-150 scrollbar-gray "
+    >
+      {isChatInitiated ? (
+        chatMessages.map((msg, index) => (
+          <div
+            key={index}
+            className={`my-2 p-3 rounded-md max-w-[80%] text-white ${
+              msg.role === "user"
+                ? "self-end bg-blue-500 "
+                : "self-start bg-gray-800"
+            }`}
+          >
+            {msg.content}
+          </div>
+        ))
+      ) : (
+        <Info />
+      )}
+      <div ref={messagesEndRef} />
     </div>
   );
 }
