@@ -13,12 +13,22 @@ function ChatInput({ setChatMessages, setIsChatInitiated }: ChatInputProps) {
   const [input, setInput] = useState("");
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (input.trim() === "") return;
     setChatMessages((prev) => [...prev, { role: "user", content: input }]);
     setIsChatInitiated(true);
     setInput("");
+    const res = await fetch("/api/chats", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: input }),
+    });
+    const reply = await res.json();
+    setChatMessages((prev) => [
+      ...prev,
+      { role: "assistant", content: reply.message },
+    ]);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
