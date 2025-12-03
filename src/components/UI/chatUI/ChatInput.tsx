@@ -20,6 +20,12 @@ function ChatInput({ setChatMessages, setIsChatInitiated }: ChatInputProps) {
     setIsChatInitiated(true);
     setInput("");
   };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      handleSubmit(e);
+    }
+  };
   useEffect(() => {
     const el = inputRef.current;
     if (el) {
@@ -38,6 +44,7 @@ function ChatInput({ setChatMessages, setIsChatInitiated }: ChatInputProps) {
         value={input}
         onChange={(e) => setInput(e.target.value)}
         rows={1}
+        onKeyDown={handleKeyDown}
       />
       <div className="flex flex-row-reverse justify-end">
         <button

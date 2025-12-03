@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import type { ChatMessage } from "@/components/Chat";
+import { twMerge } from "tailwind-merge";
 interface ChatMessagesProps {
   chatMessages: ChatMessage[];
   isChatInitiated: boolean;
@@ -14,13 +15,16 @@ function ChatMessages({ chatMessages, isChatInitiated }: ChatMessagesProps) {
   return (
     <div
       id="messageContainer"
-      className="flex flex-col w-full px-4 m-auto overflow-y-auto  max-h-150 scrollbar-gray "
+      className={twMerge(
+        "flex flex-col w-full px-4  overflow-y-auto max-h-200 lg:max-h-150 scrollbar-gray",
+        chatMessages.length ? "mb-auto" : "m-auto"
+      )}
     >
-      {isChatInitiated ? (
+      {chatMessages.length ? (
         chatMessages.map((msg, index) => (
           <div
             key={index}
-            className={`my-2 p-3 rounded-md max-w-[80%] text-white ${
+            className={`my-2 p-3 rounded-md max-w-[80%] text-white text-sm md:text-base ${
               msg.role === "user"
                 ? "self-end bg-blue-500 "
                 : "self-start bg-gray-800"

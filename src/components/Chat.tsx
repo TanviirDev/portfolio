@@ -16,68 +16,8 @@ export interface ChatMessage {
 }
 
 function Chat({ className }: ChatProps) {
-  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
-    {
-      role: "user",
-      content: "What does Tanvir do?",
-    },
-    {
-      role: "assistant",
-      content:
-        "Tanvir is a software engineer specializing in web apps, TypeScript, and React.",
-    },
-    {
-      role: "user",
-      content: "Can you show me an example project?",
-    },
-    {
-      role: "assistant",
-      content:
-        "Sure — take a look at his portfolio for React/TypeScript projects and demos.",
-    },
-    {
-      role: "user",
-      content: "What does Tanvir do?",
-    },
-    {
-      role: "assistant",
-      content:
-        "Tanvir is a software engineer specializing in web apps, TypeScript, and React.",
-    },
-    {
-      role: "user",
-      content: "Can you show me an example project?",
-    },
-    {
-      role: "assistant",
-      content:
-        "Sure — take a look at his portfolio for React/TypeScript projects and demos.",
-    },
-    {
-      role: "assistant",
-      content:
-        "Sure — take a look at his portfolio for React/TypeScript projects and demos.",
-    },
-    {
-      role: "user",
-      content: "What does Tanvir do?",
-    },
-    {
-      role: "assistant",
-      content:
-        "Tanvir is a software engineer specializing in web apps, TypeScript, and React.",
-    },
-    {
-      role: "user",
-      content: "Can you show me an example project?",
-    },
-    {
-      role: "assistant",
-      content:
-        "Sure — take a look at his portfolio for React/TypeScript projects and demos.",
-    },
-  ]);
-  const [isChatInitiated, setIsChatInitiated] = useState(true);
+  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
+  const [isChatInitiated, setIsChatInitiated] = useState(false);
 
   return (
     <Card
