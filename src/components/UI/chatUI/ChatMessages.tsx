@@ -12,6 +12,18 @@ function ChatMessages({ chatMessages, isChatInitiated }: ChatMessagesProps) {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [chatMessages]);
 
+  function Info() {
+    return (
+      <div className="text-white-50 p-4 flex flex-col  space-y-2">
+        <div className="text-2xl">AI CHAT</div>
+        <div className="">
+          Hi, I am Tanvir's personal AI assistant, I can help you with any
+          question you have about him.{" "}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div
       id="messageContainer"
@@ -37,18 +49,6 @@ function ChatMessages({ chatMessages, isChatInitiated }: ChatMessagesProps) {
         <Info />
       )}
       <div ref={messagesEndRef} />
-    </div>
-  );
-}
-
-function Info() {
-  return (
-    <div className="text-white-50 p-4 flex flex-col  space-y-2">
-      <div className="text-2xl">AI CHAT</div>
-      <div className="">
-        Hi, I am Tanvir's personal AI assistant, I can help you with any
-        question you have about him.{" "}
-      </div>
     </div>
   );
 }

@@ -12,6 +12,8 @@ interface ChatInputProps {
 function ChatInput({ setChatMessages, setIsChatInitiated }: ChatInputProps) {
   const [input, setInput] = useState("");
   const inputRef = useRef<HTMLTextAreaElement>(null);
+  const isStreamingRef = useRef(false);
+  const lastAppendedRef = useRef<string>("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,17 +21,85 @@ function ChatInput({ setChatMessages, setIsChatInitiated }: ChatInputProps) {
     setChatMessages((prev) => [...prev, { role: "user", content: input }]);
     setIsChatInitiated(true);
     setInput("");
+
+    setChatMessages((prev) => [...prev, { role: "assistant", content: "" }]);
+
+    // Prevent double streaming in React Strict Mode (dev)
+    if (isStreamingRef.current) return;
+    isStreamingRef.current = true;
+    try {
+      await fetchChatResponse();
+    } catch (error) {
+      setChatMessages((prev) => {
+        const updated = [...prev];
+        updated[updated.length - 1].content =
+          "Sorry, something went wrong." + error;
+        return updated;
+      });
+    } finally {
+      isStreamingRef.current = false;
+      lastAppendedRef.current = "";
+    }
+  };
+
+  const fetchChatResponse = async () => {
     const res = await fetch("/api/chats", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: input }),
     });
-    const reply = await res.json();
-    setChatMessages((prev) => [
-      ...prev,
-      { role: "assistant", content: reply.message },
-    ]);
+    if (!res.ok) {
+      throw new Error(res.statusText);
+    }
+    const reader = res.body?.getReader();
+    if (!reader) {
+      throw new Error("No response body");
+    }
+    const decoder = new TextDecoder();
+    while (true) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      const chunk = decoder.decode(value);
+
+      const lines = chunk.split("\n").filter((line) => line.trim());
+      console.log("lines: " + lines.length);
+      for (const line of lines) {
+        try {
+          const parsed = JSON.parse(line);
+          console.log("parsed message: " + parsed.message);
+          if (parsed.message) {
+            setChatMessages((prev) => {
+              const updated = [...prev];
+              // Deduplicate identical consecutive chunks
+              if (lastAppendedRef.current !== parsed.message) {
+                updated[updated.length - 1].content += parsed.message;
+                lastAppendedRef.current = parsed.message;
+              }
+              console.log(
+                "updated message: " + updated[updated.length - 1].content
+              );
+              return updated;
+            });
+          }
+        } catch {
+          // Ignore non-JSON lines to avoid accidental duplication/noise
+          // If needed, handle plain text chunks explicitly.
+        }
+      }
+    }
   };
+
+  // const fetchChatResponse = async () => {
+  //   const res = await fetch("/api/chats", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify({ message: input }),
+  //   });
+  //   if (!res.ok) {
+  //     throw new Error(res.statusText);
+  //   }
+  //   return (await res.json()).message;
+  // };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {

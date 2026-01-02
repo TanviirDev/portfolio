@@ -22,15 +22,17 @@ export async function POST(req: Request) {
         if (done) {
           break;
         }
-        // const chunk = decoder.decode(value);
-        controller.enqueue(value);
+        const text = decoder.decode(value);
+        controller.enqueue(text);
       }
       controller.close();
     },
   });
   return new Response(stream, {
     headers: {
-      "Content-Type": "text/event-stream",
+      "Content-Type": "application/x-ndjson",
+      // "Content-Type": "text/event-stream",
+      "Transfer-Encoding": "chunked",
       "Cache-Control": "no-cache",
     },
   });
